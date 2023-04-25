@@ -18,7 +18,9 @@ print("numpy version = ",np.__version__)
 #model_url = "https://raw.githubusercontent.com/msa-1988/st_diabetesCheck/main/trained_model.sav"
 model_url="https://github.com/msa-1988/st_diabetesCheck/blob/main/trained_model.sav"
 with st.spinner('Loading model...'):
-    loaded_model = pickle.load(urlopen(model_url))
+    loaded_model = pickle.load("./trained_model.sav")
+#     loaded_model = pickle.load(urlopen(model_url))
+
     
 # creating a function for Prediction
 
