@@ -11,7 +11,7 @@ import streamlit as st
 from urllib.request import urlopen
 
 # Load the trained model from the raw file URL
-model_url = "https://raw.githubusercontent.com/msa-1988/st_diabetesCheck/main/trained_model.sav"
+model_url = "https://github.com/msa-1988/st_diabetesCheck/blob/main/trained_model.sav"
 with st.spinner('Loading model...'):
     loaded_model = pickle.load(urlopen(model_url))
     
