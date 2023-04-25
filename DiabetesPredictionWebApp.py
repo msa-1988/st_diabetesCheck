@@ -10,10 +10,13 @@ import pickle
 import streamlit as st
 
 
-# loading the saved model
-loaded_model = pickle.load(open('https://github.com/msa-1988/st_diabetesCheck/blob/main/trained_model.sav', 'rb'))
 
 
+# Load the trained model from the raw file URL
+model_url = "https://raw.githubusercontent.com/msa-1988/st_diabetesCheck/main/trained_model.sav"
+with st.spinner('Loading model...'):
+    loaded_model = pickle.load(urlopen(model_url))
+    
 # creating a function for Prediction
 
 def diabetes_prediction(input_data):
