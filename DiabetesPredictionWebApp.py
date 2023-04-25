@@ -8,10 +8,10 @@ Created on Thu Nov 18 19:15:01 2021
 import numpy as np
 import pickle
 import streamlit as st
-from urllib.request import urlopen
 
 # loading the saved model
 loaded_model = pickle.load(open("./data/trained_model.sav", 'rb'))
+
 
 # Load the trained model from the raw file URL
 #model_url = "https://raw.githubusercontent.com/msa-1988/st_diabetesCheck/main/trained_model.sav"
