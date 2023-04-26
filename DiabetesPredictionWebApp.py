@@ -49,15 +49,16 @@ def main():
 
     # get the input data from the user
     st.header('Input Features')
-    Pregnancies = st.number_input('Number of Pregnancies', min_value=0, max_value=20, step=1, value=0)
-    Glucose = st.number_input('Glucose Level', min_value=0, max_value=300, step=1, value=0)
-    BloodPressure = st.number_input('Blood Pressure', min_value=0, max_value=200, step=1, value=0)
-    SkinThickness = st.number_input('Skin Thickness', min_value=0, max_value=100, step=1, value=0)
-    Insulin = st.number_input('Insulin Level', min_value=0, max_value=1000, step=1, value=0)
-    BMI = st.number_input('BMI', min_value=0, max_value=60, step=1, value=0)
-    DiabetesPedigreeFunction = st.number_input('Diabetes Pedigree Function', min_value=0.0, max_value=5.0, step=0.1, value=0.0)
-    Age = st.number_input('Age', min_value=1, max_value=120, step=1, value=1)
-
+    # getting the input data from the user
+    pregnancies = st.selectbox('Number of Pregnancies', range(11))
+    glucose = st.selectbox('Glucose Level', range(40, 201, 10))
+    blood_pressure = st.selectbox('Blood Pressure value', range(40, 141, 10))
+    skin_thickness = st.selectbox('Skin Thickness value', range(5, 51, 5))
+    insulin = st.selectbox('Insulin Level', range(0, 301, 20))
+    bmi = st.selectbox('BMI value', range(100, 511, 5))
+    diabetes_pedigree_function = st.selectbox('Diabetes Pedigree Function value', [round(x * 0.05, 2) for x in range(1, 101)])
+    age = st.selectbox('Age of the Person', range(21, 81))
+      
     # code for Prediction
     diagnosis = ''
     
@@ -78,9 +79,6 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-   
-    
     
     
     
