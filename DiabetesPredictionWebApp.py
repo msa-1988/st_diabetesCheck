@@ -13,14 +13,7 @@ import streamlit as st
 loaded_model = pickle.load(open("./data/trained_model.sav", 'rb'))
 
 
-# Load the trained model from the raw file URL
-#model_url = "https://raw.githubusercontent.com/msa-1988/st_diabetesCheck/main/trained_model.sav"
-# model_url="https://github.com/msa-1988/st_diabetesCheck/blob/main/trained_model.sav"
-# with st.spinner('Loading model...'):
-#     loaded_model = pickle.load("./trained_model.sav")
-#     loaded_model = pickle.load(urlopen(model_url))
-
-    
+   
 # creating a function for Prediction
 
 def diabetes_prediction(input_data):
@@ -41,46 +34,52 @@ def diabetes_prediction(input_data):
       return 'The person is diabetic'
   
     
-  
+ 
 def main():
-    
-    
-    # giving a title
+    # set page title and favicon
+    st.set_page_config(page_title='Diabetes Prediction Web App', page_icon=':pill:')
+
+    # set page header
     st.title('Diabetes Prediction Web App')
-    
-    
-    # getting the input data from the user
-    
-    
-    Pregnancies = st.text_input('Number of Pregnancies')
-    Glucose = st.text_input('Glucose Level')
-    BloodPressure = st.text_input('Blood Pressure value')
-    SkinThickness = st.text_input('Skin Thickness value')
-    Insulin = st.text_input('Insulin Level')
-    BMI = st.text_input('BMI value')
-    DiabetesPedigreeFunction = st.text_input('Diabetes Pedigree Function value')
-    Age = st.text_input('Age of the Person')
-    
-    
+    st.markdown('Please fill in the following details to predict if you have diabetes or not.')
+
+    # create a sidebar
+    st.sidebar.header('About')
+    st.sidebar.info('This is a simple web app to predict if you have diabetes or not based on some common health indicators.')
+
+    # get the input data from the user
+    st.header('Input Features')
+    Pregnancies = st.number_input('Number of Pregnancies', min_value=0, max_value=20, step=1, value=0)
+    Glucose = st.number_input('Glucose Level', min_value=0, max_value=300, step=1, value=0)
+    BloodPressure = st.number_input('Blood Pressure', min_value=0, max_value=200, step=1, value=0)
+    SkinThickness = st.number_input('Skin Thickness', min_value=0, max_value=100, step=1, value=0)
+    Insulin = st.number_input('Insulin Level', min_value=0, max_value=1000, step=1, value=0)
+    BMI = st.number_input('BMI', min_value=0, max_value=60, step=0.1, value=0.0)
+    DiabetesPedigreeFunction = st.number_input('Diabetes Pedigree Function', min_value=0.0, max_value=5.0, step=0.1, value=0.0)
+    Age = st.number_input('Age', min_value=1, max_value=120, step=1, value=1)
+
     # code for Prediction
     diagnosis = ''
     
     # creating a button for Prediction
-    
     if st.button('Diabetes Test Result'):
         diagnosis = diabetes_prediction([Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age])
         
-        
-    st.success(diagnosis)
+    st.write('')
+    st.write('')
     
-    
-    
-    
-    
+    # show the prediction result
+    if diagnosis == '1':
+        st.warning('Warning: You have a high chance of having diabetes. Please consult a doctor.')
+    elif diagnosis == '0':
+        st.success('Congratulations: You have a low chance of having diabetes.')
+    else:
+        st.info('Please fill in all the input fields and click on the "Diabetes Test Result" button to get the prediction result.')
+
 if __name__ == '__main__':
     main()
-    
-    
+
+   
     
     
     
