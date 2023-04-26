@@ -45,7 +45,7 @@ def main():
 
     # create a sidebar
     st.sidebar.header('About')
-      with open("./data/AboutTheApp", "r") as file:
+    with open("./data/AboutTheApp", "r") as file:
         message = file.read()
 
     st.sidebar.info(message)
