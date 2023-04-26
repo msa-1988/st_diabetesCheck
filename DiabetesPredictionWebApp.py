@@ -45,7 +45,10 @@ def main():
 
     # create a sidebar
     st.sidebar.header('About')
-    st.sidebar.info('This is a simple web app to predict if you have diabetes or not based on some common health indicators.')
+      with open("./data/AboutTheApp", "r") as file:
+        message = file.read()
+
+    st.sidebar.info(message)
 
     # get the input data from the user
     st.header('Input Features')
