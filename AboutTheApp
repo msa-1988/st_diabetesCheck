@@ -1,0 +1,9 @@
+The Diabetes Prediction Web App is an end-to-end machine learning application that utilizes a Support Vector Machine (SVM) algorithm to predict the likelihood of a person having diabetes based on certain input parameters. The model has been trained on a dataset of several thousand individuals, and has achieved an accuracy of 78% on the trained data.
+
+It is important to note that the purpose of this web app is to demonstrate the practical application of machine learning, and it should not be considered as a substitute for professional medical advice. The results of this app are purely indicative and should not be relied upon for any legal or medical obligations.
+
+The app provides a user-friendly interface where the user can input their personal data, such as the number of pregnancies, glucose level, blood pressure, skin thickness, insulin level, BMI, diabetes pedigree function value, and age. Once the user has entered their data, they can click on the "Diabetes Test Result" button to get the prediction of whether they are likely to have diabetes or not.
+
+The app can be further improved by adding more features such as a graphical representation of the input data, a more intuitive user interface with drop-down menus for each input parameter, and an option to download the prediction results for future reference.
+
+In conclusion, the Diabetes Prediction Web App is a practical demonstration of the use of machine learning in healthcare. However, it is important to remember that the app is not a substitute for professional medical advice, and any decisions related to one's health should be taken in consultation with a qualified healthcare provider.
